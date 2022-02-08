@@ -81,7 +81,7 @@ def destination(stub: str) -> Optional[Path]:
     return prefix / suffix  # module member
 
 
-def collect(root: str):
+def populate(root: str):
     """Get and populate stubs"""
     lockfile = Path(root) / "collect.lock"
     if lockfile.exists():
@@ -97,4 +97,4 @@ parser = argparse.ArgumentParser("Collect stubs")
 parser.add_argument("--dest", type=str, default="src", help="Stub source directory")
 
 args = parser.parse_args()
-collect(args.dest)
+populate(args.dest)

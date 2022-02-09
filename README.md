@@ -1,5 +1,3 @@
-# Micropython type stubs
-
 Micropython type hints and additional requirements
 
 ## About this package
@@ -10,7 +8,7 @@ IDE's which use these type checkers (e.g. [VSCode](https://code.visualstudio.com
 
 -   In addition to providing Micropyton type stubs this package adds [adafruit-ampy](https://pypi.org/project/adafruit-ampy/) as an install requirement, see [background](#background) for a rationale.
 
--   This is a *transitional* package meaning that at some point in time it will become obsolete depending on community Micropython stub packaging efforts, see [development](#development) for more information.
+-   This package intends to be a *transitional* package meaning that at some point in time it will become obsolete depending on community Micropython stub packaging efforts, see [development](#development) for more information.
 
 ## Installation<a id="installation"></a>
 
@@ -34,14 +32,18 @@ sudo pip3 install huas-micropython
 
 ## Background<a id="background"></a>
 
-This module was created to support students at Hanzehogeschool University of Applied Sciences's bachelor [HBO-ICT](https://www.hanze.nl/nld/onderwijs/techniek/instituut-voor-communicatie-media--it/opleidingen/bachelor/hbo-ict)  programme (in Dutch), in particular for students participating in the Internet of Things project.
+This module was created to support students at Hanzehogeschool University of Applied Sciences's bachelor [HBO-ICT](https://www.hanze.nl/nld/onderwijs/techniek/instituut-voor-communicatie-media--it/opleidingen/bachelor/hbo-ict) programme (in Dutch), in particular for students participating in the Internet of Things project.
 
-This package adds [adafruit-ampy](https://pypi.org/project/adafruit-ampy/) as an install requirement to provide all the tooling necessary for working with esp32 embedded devices. `adafruit-ampy` is also included in PyCharm's [Micropython plugin](https://plugins.jetbrains.com/plugin/9777-micropython) and as such `huas-micropython` offers functional parity.
+This package adds [adafruit-ampy](https://pypi.org/project/adafruit-ampy/) as an install requirement to provide all the tooling necessary for working with an [esp32](https://www.espressif.com/en/products/socs/esp32) microcontroller. Note that `adafruit-ampy` is also included in PyCharm's [Micropython plugin](https://plugins.jetbrains.com/plugin/9777-micropython) and as such `huas-micropython` offers *functional parity*.
 
 ## Development<a id="development"></a>
 
-Current known efforts to maintain type stubs are at [Josverl/micropython-stubs](https://github.com/Josverl/micropython-stubs) and [hlovatt/PyBoardTypeshed](https://github.com/hlovatt/PyBoardTypeshed), with the latter being included in PyCharm's [Micropython plugin](https://plugins.jetbrains.com/plugin/9777-micropython). Integration and/or combination is being discussed at [#98](https://github.com/Josverl/micropython-stubs/issues/98).
+Current efforts to maintain Micropython type stubs are at [Josverl/micropython-stubs](https://github.com/Josverl/micropython-stubs) and [hlovatt/PyBoardTypeshed](https://github.com/hlovatt/PyBoardTypeshed). The `huas-micropython` package includes both, using `Josverl/micropython-stubs` for module level stubs and `hlovatt/PyBoardTypeshed` as additional documentation stubs (as a sidenote, PyCharm's [Micropython plugin](https://plugins.jetbrains.com/plugin/9777-micropython) uses `hlovatt/PyBoardTypeshed` stubs).
 
-Publishing stubs to PyPi is also being discussed, see e.g. [#123](https://github.com/Josverl/micropython-stubs/issues/123) and [#179](https://github.com/vlasovskikh/intellij-micropython/issues/179). Once this has been resolved `huas-micropython` will be considered obsolete and retracted from PyPi.
+Two ongoing iniatives are of importance for this package:
 
-`huas-micropython` combines both repositories, using `Josverl/micropython-stubs` for module level stubs and `hlovatt/PyBoardTypeshed` for documentation stubs.
+-   Integrating and/or combinging work being done at both stub repositories (being discussed at [#98](https://github.com/Josverl/micropython-stubs/issues/98)).
+
+-   Publishing stubs to PyPi, see e.g. [#123](https://github.com/Josverl/micropython-stubs/issues/123) and [#179](https://github.com/vlasovskikh/intellij-micropython/issues/179).
+
+Once the above has been resolved `huas-micropython` will be considered obsolete and retracted from PyPi.

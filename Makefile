@@ -1,13 +1,16 @@
 all: collect build
 
-build: collect
-	python3 -m build
-
 collect:
 	python3 collect.py --dest src
 
+build: collect
+	python3 -m build
+
+test: build
+	twine upload --repository testpypi dist/*
+
 publish: build
-	python3 -m twine upload dist/*
+	twine upload dist/*
 
 clean:
 	rm -rf src build dist

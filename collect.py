@@ -1,4 +1,5 @@
 import re
+import shutil
 import argparse
 import importlib
 from io import BytesIO
@@ -53,9 +54,11 @@ def get_mod_stubs(root: str):
 
 
 def add_missing(root: str):
-    """"""
-    # Josverl/micropython-stubs does not contain all,
-    # complement hlovatt/PyBoardTypeshed added stubs
+    """Add missing modules
+
+    Josverl/micropython-stubs does not contain all,
+    complement with hlovatt/PyBoardTypeshed added stubs
+    """
     for module in Path(root).iterdir():
         file = module / "__init__.py"
 
@@ -90,6 +93,8 @@ def populate(root: str):
         get_doc_stubs(root)
         get_mod_stubs(root)
         add_missing(root)
+        # add local stubs
+        shutil.copytree("stubs", root, dirs_exist_ok=True)
         lockfile.touch()
 
 
